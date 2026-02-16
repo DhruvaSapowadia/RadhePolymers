@@ -191,9 +191,9 @@ export default function HomePage() {
                  <Image
                   src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
                   alt="Radhe Polymers Logo"
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-contain p-12 hover:scale-105 transition-transform duration-1000 ease-out"
+                  width={700}
+                  height={500}
+                  className="w-full h-full object-contain p-4 hover:scale-105 transition-transform duration-1000 ease-out"
                 />
               </div>
               {/* Decorative Corner Accents */}
