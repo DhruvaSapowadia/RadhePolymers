@@ -24,7 +24,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Image
-              src="https://static.wixstatic.com/media/9b1a81_dbcad26cd1974ef4a9d6368f11245fb6~mv2.jpg"
+              src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
               alt="Radhe Polymers"
               width={220}
               className="h-14 w-auto object-contain"

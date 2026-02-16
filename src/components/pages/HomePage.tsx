@@ -189,10 +189,10 @@ export default function HomePage() {
               <div className="absolute inset-0 border border-secondary/5 m-4 pointer-events-none" />
               <div className="w-full h-full relative overflow-hidden bg-background flex items-center justify-center">
                  <Image
-                  src="https://static.wixstatic.com/media/9b1a81_dbcad26cd1974ef4a9d6368f11245fb6~mv2.jpg"
-                  alt="Radhe Polymers Signature Preform"
-                  width={800}
-                  height={1000}
+                  src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
+                  alt="Radhe Polymers Logo"
+                  width={600}
+                  height={400}
                   className="w-full h-full object-contain p-12 hover:scale-105 transition-transform duration-1000 ease-out"
                 />
               </div>
@@ -315,10 +315,10 @@ export default function HomePage() {
                  <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 to-transparent" />
                  <div className="w-full h-full flex items-center justify-center">
                     <Image 
-                        src="https://static.wixstatic.com/media/9b1a81_dbcad26cd1974ef4a9d6368f11245fb6~mv2.jpg"
-                        alt="Radhe Logo Mark"
-                        width={100}
-                        className="opacity-20 grayscale"
+                        src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
+                        alt="Radhe Polymers Logo"
+                        width={120}
+                        className="opacity-30 grayscale"
                     />
                  </div>
               </div>
