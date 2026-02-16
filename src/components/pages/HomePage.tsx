@@ -141,12 +141,7 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-[1px] w-12 bg-accent-gold" />
-                <span className="font-paragraph text-sm tracking-[0.2em] uppercase text-accent-gold font-semibold">
-                  The Bespoke Polymer Studio
-                </span>
-              </div>
+              {/* ... keep existing code (removed tagline section) ... */}
               
               <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-primary leading-[0.9] mb-8 tracking-tight">
                 Precision <br />
