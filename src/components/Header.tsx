@@ -26,8 +26,8 @@ export default function Header() {
             <Image
               src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
               alt="Radhe Polymers"
-              width={220}
-              className="h-14 w-auto object-contain"
+              width={280}
+              className="h-20 w-auto object-contain"
             />
           </Link>
 
