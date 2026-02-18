@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
-import { ArrowRight, CheckCircle2, Factory, ShieldCheck, Clock, Settings, ChevronDown } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Factory, ShieldCheck, Clock, Settings } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -172,51 +172,68 @@ export default function HomePage() {
                     whileTap={{ scale: 0.98 }}
                     className="px-8 py-4 border border-secondary/20 text-secondary font-paragraph text-base hover:bg-secondary/5 transition-colors rounded-sm"
                   >
-                    Contact Studio
+                    Contact Us
                   </motion.button>
                 </Link>
               </div>
             </motion.div>
           </div>
 
-          {/* Hero Image / Visual */}
+          {/* Hero Graphics / Visual */}
           <motion.div 
             style={{ y: heroY, opacity: heroOpacity }}
             className="lg:col-span-5 relative h-[60vh] lg:h-[80vh] w-full flex items-center justify-center"
           >
-            <div className="relative w-full h-full max-h-[800px] bg-white p-8 shadow-2xl shadow-primary/5 border border-primary/10">
-              <div className="absolute inset-0 border border-secondary/5 m-4 pointer-events-none" />
-              <div className="w-full h-full relative overflow-hidden bg-background flex items-center justify-center">
-                 <Image
-                  src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
-                  alt="Radhe Polymers Logo"
-                  width={700}
-                  height={500}
-                  className="w-full h-full object-contain p-4 hover:scale-105 transition-transform duration-1000 ease-out"
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Animated geometric shapes */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                {/* Large rotating circle */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-64 h-64 border-2 border-primary/20 rounded-full"
                 />
+                {/* Medium rotating circle */}
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-48 h-48 border-2 border-accent-gold/30 rounded-full"
+                />
+                {/* Inner accent circle */}
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute w-32 h-32 border-2 border-primary rounded-full"
+                />
+                {/* Decorative dots */}
+                <motion.div
+                  animate={{ y: [0, -20, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute w-4 h-4 bg-accent-gold rounded-full top-1/4 left-1/4"
+                />
+                <motion.div
+                  animate={{ y: [0, 20, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute w-3 h-3 bg-primary rounded-full bottom-1/4 right-1/4"
+                />
+                {/* Center accent */}
+                <div className="absolute w-8 h-8 bg-primary/10 rounded-full" />
               </div>
-              {/* Decorative Corner Accents */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent-gold" />
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent-gold" />
+              
+              {/* Floating text elements */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute text-center z-10"
+              >
+                <p className="font-heading text-2xl text-primary font-bold">Premium</p>
+                <p className="font-paragraph text-sm text-secondary/60 mt-2">Quality Assured</p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-[10px] uppercase tracking-widest text-muted-grey">Scroll</span>
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-4 h-4 text-accent-gold" />
-          </motion.div>
-        </motion.div>
+
       </section>
       <SectionDivider />
       {/* --- MARQUEE SECTION --- */}
