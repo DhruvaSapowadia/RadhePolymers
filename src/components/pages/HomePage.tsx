@@ -122,7 +122,6 @@ export default function HomePage() {
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-clip selection:bg-primary selection:text-white">
       <Header />
-
       {/* --- HERO SECTION --- */}
       <section ref={heroRef} className="relative w-full min-h-[100vh] flex flex-col justify-center items-center pt-20 overflow-hidden">
         {/* Background Elements */}
@@ -143,7 +142,7 @@ export default function HomePage() {
             >
               {/* ... keep existing code (removed tagline section) ... */}
               
-              <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-primary leading-[0.9] mb-8 tracking-tight">
+              <h1 className="font-heading text-6xl md:text-7xl xl:text-9xl text-primary leading-[0.9] mb-8 tracking-tight lg:text-7xl">
                 Precision <br />
                 <span className="text-secondary italic font-light">in Every</span> <br />
                 Preform.
@@ -219,16 +218,13 @@ export default function HomePage() {
           </motion.div>
         </motion.div>
       </section>
-
       <SectionDivider />
-
       {/* --- MARQUEE SECTION --- */}
       <section className="py-12 bg-secondary overflow-hidden">
         <ParallaxText baseVelocity={-2}>
           RADHE POLYMERS • PRECISION • QUALITY • INNOVATION • 
         </ParallaxText>
       </section>
-
       {/* --- CAPABILITIES SECTION (Sticky Layout) --- */}
       <section className="relative w-full py-32 bg-background">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -256,7 +252,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- WHY CHOOSE US (Parallax & Stats) --- */}
       <section className="relative w-full py-32 bg-secondary text-primary-foreground overflow-hidden">
         {/* Background Texture */}
@@ -327,7 +322,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- PRODUCT TEASER (Full Bleed) --- */}
       <section className="w-full py-32 bg-background relative">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12 text-center">
@@ -360,7 +354,6 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-0 w-full h-px bg-primary/5 -z-0" />
         <div className="absolute top-0 left-1/2 h-full w-px bg-primary/5 -z-0" />
       </section>
-
       {/* --- CTA SECTION --- */}
       <section className="w-full py-24 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10" />
@@ -386,7 +379,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
