@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
-import { ArrowRight, CheckCircle2, Factory, ShieldCheck, Clock, Settings } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Factory, ShieldCheck, Clock, Settings, ChevronDown } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -142,7 +142,7 @@ export default function HomePage() {
             >
               {/* ... keep existing code (removed tagline section) ... */}
               
-              <h1 className="font-heading text-6xl md:text-7xl xl:text-9xl text-primary leading-[0.9] mb-8 tracking-tight lg:text-7xl">
+              <h1 className="font-heading text-6xl md:text-7xl xl:text-9xl text-primary leading-[0.9] mb-8 tracking-tight lg:text-6xl">
                 Precision <br />
                 <span className="text-secondary italic font-light">in Every</span> <br />
                 Preform.
@@ -172,72 +172,100 @@ export default function HomePage() {
                     whileTap={{ scale: 0.98 }}
                     className="px-8 py-4 border border-secondary/20 text-secondary font-paragraph text-base hover:bg-secondary/5 transition-colors rounded-sm"
                   >
-                    Contact Us
+                    Contact Studio
                   </motion.button>
                 </Link>
               </div>
             </motion.div>
           </div>
 
-          {/* Hero Graphics / Visual */}
+          {/* Hero Visual - PET Preform Graphics */}
           <motion.div 
             style={{ y: heroY, opacity: heroOpacity }}
             className="lg:col-span-5 relative h-[60vh] lg:h-[80vh] w-full flex items-center justify-center"
           >
             <div className="relative w-full h-full flex items-center justify-center">
-              {/* Animated geometric shapes */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                {/* Large rotating circle */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-64 h-64 border-2 border-primary/20 rounded-full"
+              {/* Animated PET Preform Bottle Shape */}
+              <svg className="w-full h-full max-w-sm" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+                {/* Bottle Cap */}
+                <motion.g
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <rect x="75" y="20" width="50" height="15" fill="#D4AF37" rx="2" />
+                  <rect x="70" y="35" width="60" height="8" fill="#A9A9A9" rx="1" />
+                </motion.g>
+                
+                {/* Bottle Neck */}
+                <path d="M 85 43 L 80 70 L 120 70 L 115 43 Z" fill="#800000" opacity="0.1" stroke="#800000" strokeWidth="1.5" />
+                
+                {/* Main Bottle Body - Preform Shape */}
+                <motion.g
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                >
+                  <path d="M 80 70 Q 60 120 60 180 Q 60 240 80 280 L 120 280 Q 140 240 140 180 Q 140 120 120 70 Z" 
+                    fill="#800000" opacity="0.08" stroke="#800000" strokeWidth="2" />
+                  
+                  {/* Highlight for 3D effect */}
+                  <path d="M 85 80 Q 75 130 75 180 Q 75 230 85 270" 
+                    stroke="#D4AF37" strokeWidth="1.5" fill="none" opacity="0.6" />
+                </motion.g>
+                
+                {/* Base */}
+                <ellipse cx="100" cy="285" rx="22" ry="8" fill="#333333" opacity="0.2" />
+                <ellipse cx="100" cy="283" rx="22" ry="6" fill="#800000" opacity="0.15" />
+                
+                {/* Decorative Elements - Preform Details */}
+                <motion.circle cx="100" cy="150" r="3" fill="#D4AF37" opacity="0.4"
+                  animate={{ opacity: [0.4, 0.8, 0.4] }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 />
-                {/* Medium rotating circle */}
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-48 h-48 border-2 border-accent-gold/30 rounded-full"
+                <motion.circle cx="100" cy="200" r="2.5" fill="#D4AF37" opacity="0.3"
+                  animate={{ opacity: [0.3, 0.7, 0.3] }}
+                  transition={{ duration: 2.5, repeat: Infinity, delay: 0.3 }}
                 />
-                {/* Inner accent circle */}
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute w-32 h-32 border-2 border-primary rounded-full"
-                />
-                {/* Decorative dots */}
-                <motion.div
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute w-4 h-4 bg-accent-gold rounded-full top-1/4 left-1/4"
-                />
-                <motion.div
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute w-3 h-3 bg-primary rounded-full bottom-1/4 right-1/4"
-                />
-                {/* Center accent */}
-                <div className="absolute w-8 h-8 bg-primary/10 rounded-full" />
-              </div>
+              </svg>
               
-              {/* Floating text elements */}
+              {/* Floating Particles */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute text-center z-10"
-              >
-                <p className="font-heading text-2xl text-primary font-bold">Premium</p>
-                <p className="font-paragraph text-sm text-secondary/60 mt-2">Quality Assured</p>
-              </motion.div>
+                className="absolute top-10 right-10 w-8 h-8 border-2 border-accent-gold/30 rounded-full"
+                animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute bottom-20 left-10 w-6 h-6 border-2 border-primary/20 rounded-full"
+                animate={{ y: [0, -15, 0], x: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+              />
+              <motion.div
+                className="absolute top-1/3 left-5 w-4 h-4 bg-accent-gold/10 rounded-full"
+                animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+              />
             </div>
           </motion.div>
         </div>
 
-
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] uppercase tracking-widest text-muted-grey">Scroll</span>
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-4 h-4 text-accent-gold" />
+          </motion.div>
+        </motion.div>
       </section>
       <SectionDivider />
       {/* --- MARQUEE SECTION --- */}
-      <section className="py-12 bg-secondary overflow-hidden">
+      <section className="py-6 bg-secondary overflow-hidden">
         <ParallaxText baseVelocity={-2}>
           RADHE POLYMERS • PRECISION • QUALITY • INNOVATION • 
         </ParallaxText>
