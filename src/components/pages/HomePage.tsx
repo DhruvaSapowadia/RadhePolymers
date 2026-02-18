@@ -185,44 +185,59 @@ export default function HomePage() {
             className="lg:col-span-5 relative h-[60vh] lg:h-[80vh] w-full flex items-center justify-center"
           >
             <div className="relative w-full h-full flex items-center justify-center">
-              {/* Animated PET Preform Bottle Shape */}
+              {/* Animated PET Preform Shape */}
               <svg className="w-full h-full max-w-sm" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-                {/* Bottle Cap */}
+                {/* Preform Cap/Thread */}
                 <motion.g
-                  animate={{ y: [0, -5, 0] }}
+                  animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <rect x="75" y="20" width="50" height="15" fill="#D4AF37" rx="2" />
-                  <rect x="70" y="35" width="60" height="8" fill="#A9A9A9" rx="1" />
+                  <rect x="80" y="15" width="40" height="12" fill="#D4AF37" rx="1" />
+                  <circle cx="100" cy="21" r="22" fill="none" stroke="#A9A9A9" strokeWidth="1.5" opacity="0.6" />
+                  <circle cx="100" cy="21" r="20" fill="none" stroke="#A9A9A9" strokeWidth="1" opacity="0.4" />
                 </motion.g>
                 
-                {/* Bottle Neck */}
-                <path d="M 85 43 L 80 70 L 120 70 L 115 43 Z" fill="#800000" opacity="0.1" stroke="#800000" strokeWidth="1.5" />
+                {/* Preform Neck - Tapered */}
+                <path d="M 82 27 L 75 65 L 125 65 L 118 27 Z" fill="#800000" opacity="0.12" stroke="#800000" strokeWidth="1.5" />
                 
-                {/* Main Bottle Body - Preform Shape */}
+                {/* Main Preform Body - Cylindrical with slight taper */}
                 <motion.g
-                  animate={{ scale: [1, 1.02, 1] }}
+                  animate={{ scale: [1, 1.015, 1] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  <path d="M 80 70 Q 60 120 60 180 Q 60 240 80 280 L 120 280 Q 140 240 140 180 Q 140 120 120 70 Z" 
-                    fill="#800000" opacity="0.08" stroke="#800000" strokeWidth="2" />
+                  {/* Outer body */}
+                  <path d="M 75 65 L 72 200 Q 70 250 75 290 L 125 290 Q 130 250 128 200 L 125 65 Z" 
+                    fill="#800000" opacity="0.1" stroke="#800000" strokeWidth="2" />
                   
-                  {/* Highlight for 3D effect */}
-                  <path d="M 85 80 Q 75 130 75 180 Q 75 230 85 270" 
-                    stroke="#D4AF37" strokeWidth="1.5" fill="none" opacity="0.6" />
+                  {/* Left highlight for 3D effect */}
+                  <path d="M 78 75 L 75 200 Q 74 240 76 280" 
+                    stroke="#D4AF37" strokeWidth="1.5" fill="none" opacity="0.5" />
+                  
+                  {/* Right subtle shadow */}
+                  <path d="M 122 75 L 125 200 Q 126 240 124 280" 
+                    stroke="#333333" strokeWidth="1" fill="none" opacity="0.2" />
                 </motion.g>
                 
-                {/* Base */}
-                <ellipse cx="100" cy="285" rx="22" ry="8" fill="#333333" opacity="0.2" />
-                <ellipse cx="100" cy="283" rx="22" ry="6" fill="#800000" opacity="0.15" />
+                {/* Base - Flat bottom typical of preforms */}
+                <ellipse cx="100" cy="292" rx="26" ry="7" fill="#333333" opacity="0.15" />
+                <ellipse cx="100" cy="290" rx="26" ry="5" fill="#800000" opacity="0.12" />
+                <path d="M 74 290 L 126 290" stroke="#800000" strokeWidth="1" opacity="0.2" />
                 
-                {/* Decorative Elements - Preform Details */}
-                <motion.circle cx="100" cy="150" r="3" fill="#D4AF37" opacity="0.4"
-                  animate={{ opacity: [0.4, 0.8, 0.4] }}
+                {/* Preform Details - Ribs/Texture */}
+                <motion.line x1="85" y1="100" x2="85" y2="260" stroke="#D4AF37" strokeWidth="0.8" opacity="0.25"
+                  animate={{ opacity: [0.25, 0.4, 0.25] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
+                />
+                <line x1="100" y1="100" x2="100" y2="260" stroke="#D4AF37" strokeWidth="0.6" opacity="0.15" />
+                <line x1="115" y1="100" x2="115" y2="260" stroke="#D4AF37" strokeWidth="0.8" opacity="0.2" />
+                
+                {/* Decorative accent points */}
+                <motion.circle cx="100" cy="120" r="2" fill="#D4AF37" opacity="0.3"
+                  animate={{ opacity: [0.3, 0.6, 0.3] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <motion.circle cx="100" cy="200" r="2.5" fill="#D4AF37" opacity="0.3"
-                  animate={{ opacity: [0.3, 0.7, 0.3] }}
+                <motion.circle cx="100" cy="200" r="1.5" fill="#D4AF37" opacity="0.25"
+                  animate={{ opacity: [0.25, 0.5, 0.25] }}
                   transition={{ duration: 2.5, repeat: Infinity, delay: 0.3 }}
                 />
               </svg>
