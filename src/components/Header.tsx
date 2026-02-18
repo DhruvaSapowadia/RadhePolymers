@@ -24,10 +24,10 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Image
-              src="https://static.wixstatic.com/media/9b1a81_0aa999ab6ad741f3a9157be2476c4752~mv2.png"
-              alt="Radhe Polymers"
-              width={280}
-              className="h-20 w-auto object-contain"
+              src="https://static.wixstatic.com/media/9b1a81_df2b552c9cb342a2a6ebd712c441a1c1~mv2.png"
+              alt="Logo"
+              width={60}
+              className="h-16 w-auto object-contain"
             />
           </Link>
 
