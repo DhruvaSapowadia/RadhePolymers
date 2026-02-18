@@ -172,7 +172,7 @@ export default function HomePage() {
                     whileTap={{ scale: 0.98 }}
                     className="px-8 py-4 border border-secondary/20 text-secondary font-paragraph text-base hover:bg-secondary/5 transition-colors rounded-sm"
                   >
-                    Contact Studio
+                    Contact Us
                   </motion.button>
                 </Link>
               </div>
@@ -247,25 +247,11 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-[10px] uppercase tracking-widest text-muted-grey">Scroll</span>
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-4 h-4 text-accent-gold" />
-          </motion.div>
-        </motion.div>
+
       </section>
       <SectionDivider />
       {/* --- MARQUEE SECTION --- */}
-      <section className="py-6 bg-secondary overflow-hidden">
+      <section className="py-3 bg-secondary overflow-hidden">
         <ParallaxText baseVelocity={-2}>
           RADHE POLYMERS • PRECISION • QUALITY • INNOVATION • 
         </ParallaxText>
