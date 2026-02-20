@@ -286,6 +286,99 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* --- PREFORMS SHOWCASE --- */}
+      <section className="w-full py-32 bg-secondary text-white relative overflow-hidden">
+        <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <span className="block font-paragraph text-accent-gold tracking-widest uppercase text-sm mb-4">Our Preforms</span>
+            <h2 className="font-heading text-5xl lg:text-7xl text-white mb-6 leading-tight">
+              Precision Crafted <br />
+              <span className="text-accent-gold">Preforms</span>
+            </h2>
+            <p className="font-paragraph text-lg text-white/70 max-w-2xl">
+              Each preform is engineered to perfection, combining advanced polymer technology with meticulous quality control.
+            </p>
+          </motion.div>
+
+          {/* Preforms Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Standard PET Preforms',
+                image: 'https://static.wixstatic.com/media/9b1a81_7bd1e31e90a54bc48728a30058578b51~mv2.png?originWidth=384&originHeight=256',
+                description: 'High-precision standard preforms for beverage packaging'
+              },
+              {
+                title: 'Wide Mouth Preforms',
+                image: 'https://static.wixstatic.com/media/9b1a81_d09fe6e164fd4e3ebdddc7d51e9a9537~mv2.png?originWidth=384&originHeight=256',
+                description: 'Specialized wide-mouth designs for diverse applications'
+              },
+              {
+                title: 'Custom Preforms',
+                image: 'https://static.wixstatic.com/media/9b1a81_fec6a046f59343df9a3e80d503955a06~mv2.png?originWidth=384&originHeight=256',
+                description: 'Bespoke preforms tailored to your unique specifications'
+              },
+              {
+                title: 'Lightweight Preforms',
+                image: 'https://static.wixstatic.com/media/9b1a81_f74ebaaa0b1b4d08bc505c076dc71d98~mv2.png?originWidth=384&originHeight=256',
+                description: 'Eco-friendly lightweight solutions for sustainable packaging'
+              },
+              {
+                title: 'Premium Caps',
+                image: 'https://static.wixstatic.com/media/9b1a81_dab70f651729483fb9c3b3f90d3bc1d9~mv2.png?originWidth=384&originHeight=256',
+                description: 'High-quality caps engineered for perfect sealing'
+              },
+              {
+                title: 'Specialty Preforms',
+                image: 'https://static.wixstatic.com/media/9b1a81_942ae01698aa49aaacf8c249786f99b8~mv2.png?originWidth=384&originHeight=256',
+                description: 'Advanced preforms for specialized industrial needs'
+              }
+            ].map((preform, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm overflow-hidden hover:border-accent-gold/50 transition-all duration-300"
+              >
+                {/* Image Container */}
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-accent-gold/10 to-transparent">
+                  <Image
+                    src={preform.image}
+                    alt={preform.title}
+                    width={400}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-60" />
+                </div>
+
+                {/* Content */}
+                <div className="p-8 relative z-10">
+                  <h3 className="font-heading text-2xl text-white mb-3 group-hover:text-accent-gold transition-colors">
+                    {preform.title}
+                  </h3>
+                  <p className="font-paragraph text-white/70 text-sm leading-relaxed mb-6">
+                    {preform.description}
+                  </p>
+                  <div className="flex items-center text-accent-gold text-sm font-paragraph group-hover:translate-x-2 transition-transform">
+                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  </div>
+                </div>
+
+                {/* Hover Border Animation */}
+                <div className="absolute top-0 left-0 w-0 h-0.5 bg-accent-gold group-hover:w-full transition-all duration-500" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* --- PRODUCT TEASER (Full Bleed) --- */}
       <section className="w-full py-32 bg-background relative">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12 text-center">
