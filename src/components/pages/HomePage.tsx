@@ -187,12 +187,53 @@ export default function HomePage() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
               className="relative w-full max-w-md"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 to-primary/5 rounded-lg blur-3xl" />
-              <Image
-                src="https://static.wixstatic.com/media/9b1a81_87309e09f0764c8580670ae1d1172e96~mv2.png"
-                alt="Premium PET Preform - Precision Engineering"
-                width={400}
-                className="relative z-10 w-full h-auto"
+              {/* Animated glow background */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-accent-gold/20 via-primary/10 to-accent-gold/5 rounded-lg blur-3xl"
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  opacity: [0.5, 0.8, 0.5]
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              
+              {/* Rotating border effect */}
+              <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-accent-gold/30 via-transparent to-accent-gold/30"
+                  animate={{ 
+                    rotate: [0, 360],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                />
+              </div>
+
+              {/* Floating animation */}
+              <motion.div
+                animate={{ 
+                  y: [0, -20, 0],
+                  rotateZ: [0, 2, 0]
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative z-10"
+              >
+                <Image
+                  src="https://static.wixstatic.com/media/9b1a81_790aac1eaba242248daf9bbcf4d6bc79~mv2.png?originWidth=384&originHeight=448"
+                  alt="Premium PET Preform - Precision Engineering"
+                  width={400}
+                  className="relative z-10 w-full h-auto drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Shimmer effect overlay */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-lg"
+                animate={{ 
+                  x: [-100, 100],
+                  opacity: [0, 0.5, 0]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
           </div>
