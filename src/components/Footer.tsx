@@ -80,9 +80,7 @@ export default function Footer() {
                 <a
                   href="tel:+911234567890"
                   className="font-paragraph text-sm text-secondary-foreground/80 hover:text-accent-gold transition-colors duration-300"
-                >
-                  +91 123 456 7890
-                </a>
+                >+91 9879017702</a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent-gold flex-shrink-0 mt-0.5" />
