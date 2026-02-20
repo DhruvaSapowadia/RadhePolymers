@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Hero Text Content */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          <div className="lg:col-span-12 flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -178,88 +178,6 @@ export default function HomePage() {
               </div>
             </motion.div>
           </div>
-
-          {/* Hero Visual - PET Preform Graphics */}
-          <motion.div 
-            style={{ y: heroY, opacity: heroOpacity }}
-            className="lg:col-span-5 relative h-[60vh] lg:h-[80vh] w-full flex items-center justify-center"
-          >
-            <div className="relative w-full h-full flex items-center justify-center">
-              {/* Animated PET Preform Shape */}
-              <svg className="w-full h-full max-w-sm" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-                {/* Preform Cap/Thread */}
-                <motion.g
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <rect x="80" y="15" width="40" height="12" fill="#D4AF37" rx="1" />
-                  <circle cx="100" cy="21" r="22" fill="none" stroke="#A9A9A9" strokeWidth="1.5" opacity="0.6" />
-                  <circle cx="100" cy="21" r="20" fill="none" stroke="#A9A9A9" strokeWidth="1" opacity="0.4" />
-                </motion.g>
-                
-                {/* Preform Neck - Tapered */}
-                <path d="M 82 27 L 75 65 L 125 65 L 118 27 Z" fill="#800000" opacity="0.12" stroke="#800000" strokeWidth="1.5" />
-                
-                {/* Main Preform Body - Cylindrical with slight taper */}
-                <motion.g
-                  animate={{ scale: [1, 1.015, 1] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                >
-                  {/* Outer body */}
-                  <path d="M 75 65 L 72 200 Q 70 250 75 290 L 125 290 Q 130 250 128 200 L 125 65 Z" 
-                    fill="#800000" opacity="0.1" stroke="#800000" strokeWidth="2" />
-                  
-                  {/* Left highlight for 3D effect */}
-                  <path d="M 78 75 L 75 200 Q 74 240 76 280" 
-                    stroke="#D4AF37" strokeWidth="1.5" fill="none" opacity="0.5" />
-                  
-                  {/* Right subtle shadow */}
-                  <path d="M 122 75 L 125 200 Q 126 240 124 280" 
-                    stroke="#333333" strokeWidth="1" fill="none" opacity="0.2" />
-                </motion.g>
-                
-                {/* Base - Flat bottom typical of preforms */}
-                <ellipse cx="100" cy="292" rx="26" ry="7" fill="#333333" opacity="0.15" />
-                <ellipse cx="100" cy="290" rx="26" ry="5" fill="#800000" opacity="0.12" />
-                <path d="M 74 290 L 126 290" stroke="#800000" strokeWidth="1" opacity="0.2" />
-                
-                {/* Preform Details - Ribs/Texture */}
-                <motion.line x1="85" y1="100" x2="85" y2="260" stroke="#D4AF37" strokeWidth="0.8" opacity="0.25"
-                  animate={{ opacity: [0.25, 0.4, 0.25] }}
-                  transition={{ duration: 2.5, repeat: Infinity }}
-                />
-                <line x1="100" y1="100" x2="100" y2="260" stroke="#D4AF37" strokeWidth="0.6" opacity="0.15" />
-                <line x1="115" y1="100" x2="115" y2="260" stroke="#D4AF37" strokeWidth="0.8" opacity="0.2" />
-                
-                {/* Decorative accent points */}
-                <motion.circle cx="100" cy="120" r="2" fill="#D4AF37" opacity="0.3"
-                  animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.circle cx="100" cy="200" r="1.5" fill="#D4AF37" opacity="0.25"
-                  animate={{ opacity: [0.25, 0.5, 0.25] }}
-                  transition={{ duration: 2.5, repeat: Infinity, delay: 0.3 }}
-                />
-              </svg>
-              
-              {/* Floating Particles */}
-              <motion.div
-                className="absolute top-10 right-10 w-8 h-8 border-2 border-accent-gold/30 rounded-full"
-                animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-20 left-10 w-6 h-6 border-2 border-primary/20 rounded-full"
-                animate={{ y: [0, -15, 0], x: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
-              />
-              <motion.div
-                className="absolute top-1/3 left-5 w-4 h-4 bg-accent-gold/10 rounded-full"
-                animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-              />
-            </div>
-          </motion.div>
         </div>
 
 
