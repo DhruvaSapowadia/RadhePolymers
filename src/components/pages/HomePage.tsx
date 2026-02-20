@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Hero Text Content */}
-          <div className="lg:col-span-12 flex flex-col justify-center">
+          <div className="lg:col-span-6 flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -176,6 +176,24 @@ export default function HomePage() {
                   </motion.button>
                 </Link>
               </div>
+            </motion.div>
+          </div>
+
+          {/* Hero Image - Preform Product */}
+          <div className="lg:col-span-6 flex justify-center items-center">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="relative w-full max-w-md"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 to-primary/5 rounded-lg blur-3xl" />
+              <Image
+                src="https://static.wixstatic.com/media/9b1a81_87309e09f0764c8580670ae1d1172e96~mv2.png"
+                alt="Premium PET Preform - Precision Engineering"
+                width={400}
+                className="relative z-10 w-full h-auto"
+              />
             </motion.div>
           </div>
         </div>
