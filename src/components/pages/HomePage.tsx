@@ -219,7 +219,7 @@ export default function HomePage() {
                 className="relative z-10"
               >
                 <Image
-                  src="https://static.wixstatic.com/media/9b1a81_790aac1eaba242248daf9bbcf4d6bc79~mv2.png?originWidth=384&originHeight=448"
+                  src="https://static.wixstatic.com/media/9b1a81_21e0d6232c0a4b7283ff352725165d54~mv2.png?originWidth=384&originHeight=576"
                   alt="Premium PET Preform - Precision Engineering"
                   width={400}
                   className="relative z-10 w-full h-auto drop-shadow-2xl"
