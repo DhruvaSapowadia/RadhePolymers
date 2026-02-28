@@ -1,9 +1,9 @@
 // HPI 1.7-G
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import { ArrowRight, CheckCircle2, Factory, ShieldCheck, Clock, Settings, ChevronDown } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -60,41 +60,15 @@ const STATS_DATA: StatItem[] = [
 
 // --- Components ---
 
-const ParallaxText = ({ children, baseVelocity = 100 }: { children: string; baseVelocity: number }) => {
-  const baseX = useRef(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useSpring(scrollY, { damping: 50, stiffness: 400 });
-  const velocityFactor = useTransform(scrollVelocity, [0, 1000], [0, 5], { clamp: false });
-  const [x, setX] = useState(0);
-
-  useEffect(() => {
-    let lastTime = performance.now();
-    const animate = (time: number) => {
-      const delta = time - lastTime;
-      lastTime = time;
-      let moveBy = baseVelocity * (delta / 1000);
-      // Apply direction based on scroll
-      const directionFactor = 1; 
-      moveBy += directionFactor * moveBy * velocityFactor.get();
-      baseX.current += moveBy;
-      // Loop logic
-      if (baseX.current <= -100) baseX.current = 0;
-      if (baseX.current >= 0) baseX.current = -100; // Adjust based on content width
-      setX(baseX.current);
-      requestAnimationFrame(animate);
-    };
-    const animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
-  }, [baseVelocity, velocityFactor]);
-
+const ParallaxText = ({ children }: { children: string }) => {
   return (
     <div className="overflow-hidden whitespace-nowrap flex flex-nowrap">
-      <motion.div className="flex whitespace-nowrap flex-nowrap" style={{ x: `${x}%` }}>
+      <div className="flex whitespace-nowrap flex-nowrap">
         <span className="block text-[12vw] font-heading font-bold text-primary/5 uppercase mr-12">{children}</span>
         <span className="block text-[12vw] font-heading font-bold text-primary/5 uppercase mr-12">{children}</span>
         <span className="block text-[12vw] font-heading font-bold text-primary/5 uppercase mr-12">{children}</span>
         <span className="block text-[12vw] font-heading font-bold text-primary/5 uppercase mr-12">{children}</span>
-      </motion.div>
+      </div>
     </div>
   );
 };
