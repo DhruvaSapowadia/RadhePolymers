@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { BaseCrudService } from '@/integrations';
 import { Products } from '@/entities';
 import { Image } from '@/components/ui/image';
