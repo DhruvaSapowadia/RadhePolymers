@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { BaseCrudService } from '@/integrations';
 import { Products } from '@/entities';
 import { Image } from '@/components/ui/image';
@@ -33,19 +32,14 @@ export default function ProductsPage() {
       
       {/* Hero Section */}
       <section className="w-full max-w-[100rem] mx-auto px-8 lg:px-20 pt-32 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
-        >
+        <div className="text-center max-w-4xl mx-auto">
           <h1 className="font-heading text-6xl lg:text-7xl text-primary mb-6">
             Our Products
           </h1>
           <p className="font-paragraph text-lg text-foreground/80 leading-relaxed">
             Explore our comprehensive range of PET preforms and caps, engineered with precision for diverse packaging needs
           </p>
-        </motion.div>
+        </div>
       </section>
 
       {/* Products Grid */}

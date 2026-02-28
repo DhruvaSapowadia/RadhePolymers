@@ -1,9 +1,8 @@
 // HPI 1.7-G
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import { ArrowRight, CheckCircle2, Factory, ShieldCheck, Clock, Settings, ChevronDown } from 'lucide-react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -78,26 +77,11 @@ const SectionDivider = () => (
 );
 
 export default function HomePage() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroScroll } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  
-  const heroY = useTransform(heroScroll, [0, 1], ["0%", "30%"]);
-  const heroOpacity = useTransform(heroScroll, [0, 0.8], [1, 0]);
-
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-clip selection:bg-primary selection:text-white">
+    <div className="min-h-screen bg-background text-foreground overflow-clip selection:bg-primary selection:text-white">
       <Header />
       {/* --- HERO SECTION --- */}
-      <section ref={heroRef} className="relative w-full min-h-[100vh] flex flex-col justify-center items-center pt-20 overflow-hidden">
+      <section className="relative w-full min-h-[100vh] flex flex-col justify-center items-center pt-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03),transparent_70%)]" />
@@ -109,13 +93,7 @@ export default function HomePage() {
           
           {/* Hero Text Content */}
           <div className="lg:col-span-6 flex flex-col justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {/* ... keep existing code (removed tagline section) ... */}
-              
+            <div>
               <h1 className="font-heading text-6xl md:text-7xl xl:text-9xl text-primary leading-[0.9] mb-8 tracking-tight lg:text-6xl">
                 Precision <br />
                 <span className="text-secondary italic font-light">in Every</span> <br />
@@ -129,96 +107,53 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-6">
                 <Link to="/products">
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group relative px-8 py-4 bg-primary text-white font-paragraph text-base overflow-hidden rounded-sm"
-                  >
+                  <button className="group relative px-8 py-4 bg-primary text-white font-paragraph text-base overflow-hidden rounded-sm hover:bg-secondary transition-colors duration-300">
                     <span className="relative z-10 flex items-center gap-2">
                       Explore Collection <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </span>
-                    <div className="absolute inset-0 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out" />
-                  </motion.button>
+                  </button>
                 </Link>
                 <Link to="/contact">
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 border border-secondary/20 text-secondary font-paragraph text-base hover:bg-secondary/5 transition-colors rounded-sm"
-                  >
+                  <button className="px-8 py-4 border border-secondary/20 text-secondary font-paragraph text-base hover:bg-secondary/5 transition-colors rounded-sm">
                     Contact Us
-                  </motion.button>
+                  </button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Hero Image - Preform Product */}
           <div className="lg:col-span-6 flex justify-center items-center">
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="relative w-full max-w-md"
-            >
-              {/* Animated glow background */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-accent-gold/20 via-primary/10 to-accent-gold/5 rounded-lg blur-3xl"
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
+            <div className="relative w-full max-w-md">
+              {/* Glow background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/20 via-primary/10 to-accent-gold/5 rounded-lg blur-3xl" />
               
-              {/* Rotating border effect */}
+              {/* Border effect */}
               <div className="absolute inset-0 rounded-lg overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-accent-gold/30 via-transparent to-accent-gold/30"
-                  animate={{ 
-                    rotate: [0, 360],
-                    opacity: [0.3, 0.6, 0.3]
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-r from-accent-gold/30 via-transparent to-accent-gold/30" />
               </div>
 
-              {/* Floating animation */}
-              <motion.div
-                animate={{ 
-                  y: [0, -20, 0],
-                  rotateZ: [0, 2, 0]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10"
-              >
+              {/* Image */}
+              <div className="relative z-10">
                 <Image
                   src="https://static.wixstatic.com/media/9b1a81_21e0d6232c0a4b7283ff352725165d54~mv2.png?originWidth=384&originHeight=576"
                   alt="Premium PET Preform - Precision Engineering"
                   width={400}
                   className="relative z-10 w-full h-auto drop-shadow-2xl"
                 />
-              </motion.div>
+              </div>
 
               {/* Shimmer effect overlay */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-lg"
-                animate={{ 
-                  x: [-100, 100],
-                  opacity: [0, 0.5, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-lg" />
+            </div>
           </div>
         </div>
-
 
       </section>
       <SectionDivider />
       {/* --- MARQUEE SECTION --- */}
       <section className="py-3 bg-secondary overflow-hidden">
-        <ParallaxText baseVelocity={-2}>
+        <ParallaxText>
           RADHE POLYMERS • PRECISION • QUALITY • INNOVATION • 
         </ParallaxText>
       </section>
@@ -249,7 +184,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* --- WHY CHOOSE US (Parallax & Stats) --- */}
+      {/* --- WHY CHOOSE US (Stats) --- */}
       <section className="relative w-full py-32 bg-secondary text-primary-foreground overflow-hidden">
         {/* Background Texture */}
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay" />
@@ -258,12 +193,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             
             {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <div>
               <span className="block font-paragraph text-accent-gold tracking-widest uppercase text-sm mb-4">Why Choose Radhe</span>
               <h2 className="font-heading text-5xl lg:text-7xl text-white mb-10 leading-tight">
                 Engineered for <br />
@@ -295,7 +225,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -322,13 +252,7 @@ export default function HomePage() {
       {/* --- PRODUCT TEASER (Full Bleed) --- */}
       <section className="w-full py-32 bg-background relative">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative z-10"
-          >
+          <div className="relative z-10">
             <h2 className="font-heading text-5xl lg:text-7xl text-primary mb-8">
               The Collection
             </h2>
@@ -344,7 +268,7 @@ export default function HomePage() {
                 </button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
         
         {/* Background decorative lines */}
@@ -356,12 +280,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10" />
         
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 relative z-10 flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <h2 className="font-heading text-5xl lg:text-8xl mb-8 text-white">
               Ready to Elevate?
             </h2>
@@ -373,7 +292,7 @@ export default function HomePage() {
                 Start the Conversation
               </button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
       <Footer />
@@ -384,17 +303,8 @@ export default function HomePage() {
 // --- Sub-Components ---
 
 function CapabilityCard({ item, index }: { item: CapabilityItem; index: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: 50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative bg-white p-10 border border-secondary/5 hover:border-primary/20 transition-colors duration-500 shadow-sm hover:shadow-lg"
-    >
+    <div className="group relative bg-white p-10 border border-secondary/5 hover:border-primary/20 transition-colors duration-500 shadow-sm hover:shadow-lg">
       <div className="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-500 ease-in-out" />
       
       <div className="flex items-start gap-6">
@@ -410,22 +320,13 @@ function CapabilityCard({ item, index }: { item: CapabilityItem; index: number }
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 function StatCard({ stat, index }: { stat: StatItem; index: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="aspect-square bg-white/5 backdrop-blur-sm border border-white/10 p-8 flex flex-col justify-center items-center text-center hover:bg-white/10 transition-colors duration-300"
-    >
+    <div className="aspect-square bg-white/5 backdrop-blur-sm border border-white/10 p-8 flex flex-col justify-center items-center text-center hover:bg-white/10 transition-colors duration-300">
       <div className="font-heading text-6xl lg:text-7xl text-accent-gold mb-2">
         {stat.value}
       </div>
@@ -435,6 +336,6 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
       <div className="font-paragraph text-sm text-muted-grey uppercase tracking-wider">
         {stat.sub}
       </div>
-    </motion.div>
+    </div>
   );
 }
